@@ -1,0 +1,38 @@
+if SHIELD_SQUIDBOARD_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Squidboard"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ADC
+    default y
+
+config ANALOG_INPUT
+    default y
+
+endif
+
+if SHIELD_SQUIDBOARD_RIGHT
+
+config SPI
+    default y
+
+config PMW3610
+    default y
+
+config PMW3610_REPORT_INTERVAL_MIN
+    default 12
+
+endif
+
+if SHIELD_SQUIDBOARD_LEFT || SHIELD_SQUIDBOARD_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_POINTING
+    default y
+
+endif

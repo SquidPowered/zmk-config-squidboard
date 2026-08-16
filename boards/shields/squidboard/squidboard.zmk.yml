@@ -1,0 +1,12 @@
+file_format: "1"
+id: squidboard
+name: Squidboard
+type: shield
+url: https://github.com/SquidPowered/zmk-config-squidboard
+requires: [pro_micro]
+features:
+  - keys
+  - pointer
+siblings:
+  - squidboard_left
+  - squidboard_right

@@ -18,3 +18,10 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
+include:
+  - board: nice_nano_v2
+    shield: squidboard_left
+    artifact-name: squidboard_left
+  - board: nice_nano_v2
+    shield: squidboard_right
+    artifact-name: squidboard_right

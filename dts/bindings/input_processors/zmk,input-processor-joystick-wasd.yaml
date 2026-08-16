@@ -1,0 +1,21 @@
+description: Convert relative joystick axes to four directional key behaviors
+
+compatible: "zmk,input-processor-joystick-wasd"
+
+include: ip_zero_param.yaml
+
+properties:
+  bindings:
+    type: phandle-array
+    required: true
+    description: Bindings ordered as up, down, left, and right
+
+  threshold:
+    type: int
+    default: 8
+    description: Minimum absolute axis value that presses a direction
+
+  release-after-ms:
+    type: int
+    default: 50
+    description: Release delay after an axis stops reporting motion
