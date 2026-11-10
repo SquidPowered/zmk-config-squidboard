@@ -2,13 +2,36 @@
 
 #include "squidboard.dtsi"
 
+// The PMW3610 uses one bidirectional SDIO line, so MOSI and MISO share D16.
+&pinctrl {
+    squidboard_spi_default: squidboard_spi_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                <NRF_PSEL(SPIM_MISO, 0, 10)>;
+        };
+    };
+
+    squidboard_spi_sleep: squidboard_spi_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                <NRF_PSEL(SPIM_MISO, 0, 10)>;
+            low-power-enable;
+        };
+    };
+};
+
 &default_transform {
     col-offset = <6>;
 };
 
-// Uses the nice!nano SPI pins: D15/SCK, D16/MOSI, and D14/MISO.
+// Uses D15 for SCLK and D16 for the bidirectional SDIO line.
 &pro_micro_spi {
     status = "okay";
+    pinctrl-0 = <&squidboard_spi_default>;
+    pinctrl-1 = <&squidboard_spi_sleep>;
+    pinctrl-names = "default", "sleep";
     cs-gpios = <&pro_micro 10 GPIO_ACTIVE_LOW>;
 
     trackball: trackball@0 {

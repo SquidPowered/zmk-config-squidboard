@@ -14,8 +14,10 @@ can be changed once the schematic is final.
 | Matrix rows | D4, D5, D6, D7, D8 |
 | Matrix columns | D0, D1, D2, D3, D18, D21 |
 | Left analog stick X/Y | D19/A1 (AIN0), D20/A2 (AIN5) |
-| Right PMW3610 SPI | D15/SCK, D16/MOSI, D14/MISO |
-| Right PMW3610 CS / motion | D10 / D9 |
+| Right PMW3610 data / clock | D16/SDIO, D15/SCLK |
+| Right PMW3610 CS / motion | D10/NCS, D9/MOT |
+| Right PMW3610 power | 3V3/VDDIO, GND/GND |
+| Right PMW3610 reset | 3V3/NRESET |
 
 The matrix is electrically 5x6. Row 5 is sparse: column 0 is the palm key and
 columns 3-5 are the thumb cluster on the left; the right side is mirrored by
